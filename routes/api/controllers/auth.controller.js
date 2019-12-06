@@ -2,10 +2,10 @@ const jwt = require('jsonwebtoken');
 const User = require('../../../models/User');
 const { vaildEmail } = require('../../../constants/regex');
 
-exports.authenticate = async (req, res, next) => {
+exports.authenticate = async(req, res, next) => {
   try {
     const { email, name, profilePhoto } = req.body;
-    console.log(req.body);
+
     if (!vaildEmail.test(email)) {
       throw new Error('Invaild email');
     }
