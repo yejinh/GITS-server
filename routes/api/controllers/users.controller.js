@@ -104,3 +104,17 @@ exports.create = async(req, res, next) => {
     next(new Error(err));
   }
 };
+
+exports.getMyStories = async(req, res, next) => {
+  try {
+    const userId = req.params.user_id;
+
+    console.log(userId);
+    res.json({
+      message: 'My stories found successfully'
+    });
+  } catch(err) {
+    console.log(err);
+    next(new Error(err));
+  }
+};
