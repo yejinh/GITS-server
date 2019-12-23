@@ -3,13 +3,17 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 const StorySchema = new mongoose.Schema(
   {
+    created_by: {
+      type: ObjectId,
+      ref: 'User'
+    },
     title: {
       type: String,
       required: true
     },
-    created_by: {
-      type: ObjectId,
-      ref: 'User'
+    cover : {
+      type: String,
+      required: true
     },
     pages: [
       {
@@ -21,7 +25,7 @@ const StorySchema = new mongoose.Schema(
           type: String,
           required: true
         },
-        voice: {
+        audio: {
           type: String
         },
         content: {
